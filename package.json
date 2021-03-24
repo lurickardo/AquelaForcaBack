@@ -1,0 +1,21 @@
+{
+  "name": "hackatonFcamaraBack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:luiz250800/hackatonFcamaraBack.git",
+  "author": "Luiz Ricardo Soares dos Santos <luizr726@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.11",
+    "ts-node-dev": "^1.0.0-pre.56",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
