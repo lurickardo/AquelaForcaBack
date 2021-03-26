@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import Connection from './database/connection';
 import routes from './routes';
 
 const app = express();
@@ -9,5 +10,13 @@ app.use(express.json());
 app.use(routes);
 
 app.listen(3333, () => {
-  console.log('Server started on port 3333.');
+  console.log('\x1b[32m \nServer express started on port 3333. \x1b[0m');
+}).on('error', (error) => {
+  console.log(`\x1b[31m \nError connecting to Express server: ${error} \x1b[0m`);
 });
+
+Connection.mongodbConnection().then(() => {
+  console.log('\x1b[32m \nServer MongoDB started... \x1b[0m');
+}).catch((error) => {
+  console.log(`\x1b[31m \nError when establishing database connection MongoDB: ${error} \x1b[0m`);
+})
