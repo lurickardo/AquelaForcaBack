@@ -1,4 +1,4 @@
-import ModelGrade from '../models/Grade'
+import Grade from '../models/Grade'
 
 export default class DatabaseSeeder {
     constructor(){
@@ -32,7 +32,7 @@ export default class DatabaseSeeder {
             nmGrade: "3º Ano - Ensino médio"
           }];
           
-          ModelGrade.insertMany(arr).then(() => {
+          Grade.insertMany(arr).then(() => {
             console.log("\x1b[32m \nGrade successfully inserted \x1b[0m")
           }).catch((error: string) => {
             console.log(`\x1b[31m \nError inserting grade: ${error}\x1b[0m`)
