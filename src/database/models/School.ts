@@ -4,6 +4,7 @@ const School = new mongoose.Schema({
     nmSchool: {
         type: String,
         require: true,
+        unique: true,
     },
     sgState: {
         type: String,
