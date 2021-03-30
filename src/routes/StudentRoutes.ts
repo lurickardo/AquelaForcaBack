@@ -1,13 +1,13 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import StudentController from './../controllers/StudentController';
 
 const studentRoutes = Router();
 const studentController = new StudentController();
 
-studentRoutes.get('/student/responsible/:idResponsible', studentController.listStudentsByResponsible)
-studentRoutes.get('/student/school/:idSchool', studentController.listStudentsBySchool)
+studentRoutes.get('/student/responsible/:responsible', studentController.listStudentsByResponsible)
+studentRoutes.get('/student/school/:school', studentController.listStudentsBySchool)
 studentRoutes.post('/student/register', studentController.store)
-studentRoutes.put('/student/edit/:idResponsible', studentController.update)
-studentRoutes.delete('/student/exclude/:id', studentController.delete)
+studentRoutes.put('/student/edit/:responsible', studentController.update)
+studentRoutes.delete('/student/exclude/:_id', studentController.delete)
 
 export default studentRoutes;

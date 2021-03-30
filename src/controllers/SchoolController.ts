@@ -1,4 +1,4 @@
-import { Request, Response} from 'express';
+import { Request, Response } from 'express';
 import School from '../database/models/School';
 
 export default class SchoolController {
@@ -8,10 +8,10 @@ export default class SchoolController {
         const sgState = params.sgState as string;
         const idCity = Number(params.idCity) as number;
 
-        await School.find({sgState, idCity}).then((list: any) => {
-            return response.status(201).json(list)
+        await School.find().where({ sgState, idCity }).then((data: any) => {
+            return response.status(200).json(data)
         }).catch((error: string) => {
-            return response.status(500).json({message: `${error}`})
+            return response.status(500).json({ message: `${error}` })
         })
     }
 
@@ -23,11 +23,11 @@ export default class SchoolController {
         const idCity = Number(data.idCity) as number;
         const nmEndereco = data.nmEndereco as string;
         const nrEndereco = Number(data.nrEndereco) as number;
-        
-        await new School({nmSchool, sgState, idCity, nmEndereco, nrEndereco}).save().then(() => {
-            return response.status(201).json({message: "Escola criada com sucesso"})
-          }).catch((error: string) => {
-            return response.status(500).json({message: `${error}`})
-          })        
+
+        await new School({ nmSchool, sgState, idCity, nmEndereco, nrEndereco }).save().then(() => {
+            return response.status(201).json({ message: "Escola criada com sucesso" })
+        }).catch((error: string) => {
+            return response.status(500).json({ message: `${error}` })
+        })
     }
 }

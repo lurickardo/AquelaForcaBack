@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import LocalityController from './../controllers/LocalityController';
 
 const localityRoutes = Router();

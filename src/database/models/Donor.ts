@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const Donor = new mongoose.Schema({
-    idStudent: {
-        type: String,
-        require: true,
-    },
+    supplieStudent: [{ type: ObjectId, ref: "supplieStudent" }],
     nmSurname: {
         type: String,
         require: true,
@@ -21,10 +20,6 @@ const Donor = new mongoose.Schema({
         type: String,
         require: true,
     },
-    supplies: {
-        type: Array,
-        require: true,
-    }
 })
 
 export default mongoose.model('donor', Donor)

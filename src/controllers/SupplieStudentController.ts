@@ -11,9 +11,9 @@ interface ISupplieStudent {
 export default class SupplieStudentController {
     async listSuppliesByStudent(request: Request, response: Response) {
         const student = request.params.student as string
-        
-        await SupplieStudent.find().where({student: student}).populate(['supplie', 'student']).then((list: any) => {
-            return response.status(200).json(list)
+
+        await SupplieStudent.find().where({ student: student }).populate(['supplie', 'student']).then((data: any) => {
+            return response.status(200).json(data)
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })
         })
@@ -21,7 +21,7 @@ export default class SupplieStudentController {
 
     async store(request: Request, response: Response) {
         const supplieStudents = request.body as Array<ISupplieStudent>
-        
+
         await SupplieStudent.insertMany(supplieStudents).then(() => {
             return response.status(201).json({ message: "Materiais do aluno cadastrados com sucesso." })
         }).catch((error: string) => {
@@ -34,7 +34,7 @@ export default class SupplieStudentController {
 
         const bulkOps = supplieStudents.map((supplieStudent) => ({
             updateOne: {
-                filter: {_id: supplieStudent._id},
+                filter: { _id: supplieStudent._id },
                 update: supplieStudent,
             }
         }))
@@ -49,7 +49,7 @@ export default class SupplieStudentController {
     async delete(request: Request, response: Response) {
         const _id = request.params._id as string;
 
-        await SupplieStudent.deleteOne({_id}).then(() => {
+        await SupplieStudent.deleteOne({ _id }).then(() => {
             return response.status(200).json({ message: "Material do aluno excluído com sucesso." })
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })

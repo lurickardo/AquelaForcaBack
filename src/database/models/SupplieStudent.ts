@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const SupplieStudent = new Schema({
-    supplie: [{type: ObjectId, ref: "supplie"}],
-    student: [{type: ObjectId, ref: "student"}],
+    supplie: [{ type: ObjectId, ref: "supplie" }],
+    student: [{ type: ObjectId, ref: "student" }],
     qtSupplie: {
         type: Number,
         require: true,

@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import GradeController from '../controllers/GradeController';
 
 const gradeRoutes = Router();

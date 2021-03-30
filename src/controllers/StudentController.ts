@@ -2,30 +2,30 @@ import { Request, Response } from 'express';
 import Student from '../database/models/Student';
 
 interface IStudent {
-    id?: string;
-    idResponsible: string;
-    idGrade: string;
-    idSchool: string;
+    _id?: string;
+    responsible: string;
+    grade: string;
+    school: string;
     nmStudent: string;
     nmRa: string;
 }
 
 export default class StudentController {
     async listStudentsByResponsible(request: Request, response: Response) {
-        const idResponsible = request.params.idResponsible as string;
+        const responsible = request.params.responsible as string;
 
-        await Student.find({}).where({idResponsible}).then((list: any) => {
-            return response.status(200).json(list)
+        await Student.find().where({ responsible }).then((data: any) => {
+            return response.status(200).json(data)
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })
         })
     }
 
     async listStudentsBySchool(request: Request, response: Response) {
-        const idSchool = request.params.idSchool as string;
+        const school = request.params.school as string;
 
-        await Student.find({}).where({idSchool}).then((list: any) => {
-            return response.status(200).json(list)
+        await Student.find().where({ school }).then((data: any) => {
+            return response.status(200).json(data)
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })
         })
@@ -42,12 +42,12 @@ export default class StudentController {
     }
 
     async update(request: Request, response: Response) {
-        const idResponsible = request.params.idResponsible as string
+        const responsible = request.params.responsible as string
         const students = request.body as Array<IStudent>;
 
         const bulkOps = students.map((student) => ({
             updateOne: {
-                filter: {idResponsible, _id: student.id},
+                filter: { responsible, _id: student._id },
                 update: student,
             }
         }))
@@ -60,9 +60,9 @@ export default class StudentController {
     }
 
     async delete(request: Request, response: Response) {
-        const _id = request.params.id as string;
+        const _id = request.params._id as string;
 
-        await Student.deleteOne({_id}).then(() => {
+        await Student.deleteOne({ _id }).then(() => {
             return response.status(200).json({ message: "Aluno excluído com sucesso." })
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })

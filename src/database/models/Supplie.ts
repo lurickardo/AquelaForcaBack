@@ -9,7 +9,7 @@ const Supplie = new mongoose.Schema({
     vlUnity: {
         type: Float,
         require: true,
-    }, 
+    },
 })
 
 export default mongoose.model('supplie', Supplie)
