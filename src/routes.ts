@@ -4,10 +4,11 @@ import schoolRoutes from './routes/SchoolRoutes';
 import responsibleRoutes from './routes/ResponsibleRoutes';
 import gradeRoutes from './routes/GradeRoutes';
 import studentRoutes from './routes/StudentRoutes';
+import supplieRoutes from './routes/SupplieRoutes';
 
 const routes = Router();
 
-routes.use('/api/', localityRoutes, schoolRoutes, responsibleRoutes, gradeRoutes, studentRoutes); 
+routes.use('/api/', localityRoutes, schoolRoutes, responsibleRoutes, gradeRoutes, studentRoutes, supplieRoutes); 
 routes.use(function(req, res){
     res.send(404);
 });
