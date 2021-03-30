@@ -1,18 +1,11 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const Student = new mongoose.Schema({
-    idResponsible: {
-        type: String,
-        require: true,
-    },
-    idGrade: {
-        type: String,
-        require: true,
-    },
-    idSchool: {
-        type: String,
-        require: true,
-    },
+    responsible: [{ type: ObjectId, ref: "responsible" }],
+    grade: [{ type: ObjectId, ref: "grade" }],
+    school: [{ type: ObjectId, ref: "school" }],
     nmStudent: {
         type: String,
         require: true,

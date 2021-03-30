@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import ResponsibleController from '../controllers/ResponsibleController';
 
 const responsibleRoutes = Router();

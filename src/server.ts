@@ -2,9 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import Connection from './database/connection';
 import routes from './routes';
-import DatabaseSeeder from './database/seeds/DatabaseSeeder';
 
-new DatabaseSeeder();
 const app = express();
 
 app.use(cors());

@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import localityRoutes from './routes/LocalityRoutes';
 import schoolRoutes from './routes/SchoolRoutes';
 import responsibleRoutes from './routes/ResponsibleRoutes';
@@ -9,9 +9,9 @@ import supplieStudent from './routes/SupplieStudent';
 
 const routes = Router();
 
-routes.use('/api/', localityRoutes, schoolRoutes, responsibleRoutes, gradeRoutes, studentRoutes, supplieRoutes, supplieStudent); 
-routes.use(function(req, res){
-    res.send(404);
+routes.use('/api/', localityRoutes, schoolRoutes, responsibleRoutes, gradeRoutes, studentRoutes, supplieRoutes, supplieStudent);
+routes.use(function (request: Request, response: Response) {
+    response.send(404);
 });
 
 export default routes;
