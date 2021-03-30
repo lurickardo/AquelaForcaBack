@@ -10,9 +10,9 @@ interface ISupplieStudent {
 
 export default class SupplieStudentController {
     async listSuppliesByStudent(request: Request, response: Response) {
-        const idStudent = request.params.idStudent as string
+        const student = request.params.student as string
         
-        await SupplieStudent.find().where({student: idStudent}).populate(['supplie', 'student']).then((list: any) => {
+        await SupplieStudent.find().where({student: student}).populate(['supplie', 'student']).then((list: any) => {
             return response.status(200).json(list)
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })
@@ -30,7 +30,20 @@ export default class SupplieStudentController {
     }
 
     async update(request: Request, response: Response) {
+        const supplieStudents = request.body as Array<ISupplieStudent>;
 
+        const bulkOps = supplieStudents.map((supplieStudent) => ({
+            updateOne: {
+                filter: {_id: supplieStudent._id},
+                update: supplieStudent,
+            }
+        }))
+
+        await SupplieStudent.bulkWrite(bulkOps).then(() => {
+            return response.status(200).json({ message: "Materiais do aluno alterados com sucesso." })
+        }).catch((error: string) => {
+            return response.status(500).json({ message: `${error}` })
+        })
     }
 
     async delete(request: Request, response: Response) {
