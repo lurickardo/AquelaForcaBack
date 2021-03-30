@@ -14,7 +14,17 @@ export default class StudentController {
     async listStudentsByResponsible(request: Request, response: Response) {
         const idResponsible = request.params.idResponsible as string;
 
-        await Student.find({ idResponsible }).then((list: any) => {
+        await Student.find({}).where({idResponsible}).then((list: any) => {
+            return response.status(200).json(list)
+        }).catch((error: string) => {
+            return response.status(500).json({ message: `${error}` })
+        })
+    }
+
+    async listStudentsBySchool(request: Request, response: Response) {
+        const idSchool = request.params.idSchool as string;
+
+        await Student.find({}).where({idSchool}).then((list: any) => {
             return response.status(200).json(list)
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })
