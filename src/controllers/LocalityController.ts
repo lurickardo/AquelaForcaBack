@@ -11,7 +11,7 @@ export default class LocalityController {
     }
 
     async listAllCitiesByState(request: Request, response: Response) {
-        const result = await axios.get(`${api}/localidades/estados/${request.params.sgState}/distritos`)
+        const result = await axios.get(`${api}/localidades/estados/${request.params.idState}/distritos`)
         return response.status(200).send(result.data)
     }
 }
