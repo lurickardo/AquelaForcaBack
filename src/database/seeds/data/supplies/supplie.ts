@@ -1,17 +1,22 @@
 export = [
     {
+      "_id": "6063d97436e098f7364f45c5",
       "nmSupplie": "Mochila",
       "vlUnity": 70.00
     }, {
+      "_id": "6063d97436e098f7364f45c6",
       "nmSupplie": "Agenda escolar",
       "vlUnity": 12.00
     }, {
+      "_id": "6063d97436e098f7364f45c7",
       "nmSupplie": "Apontador",
       "vlUnity": 1.50
     }, {
+      "_id": "6063d97436e098f7364f45c8",
       "nmSupplie": "Borracha",
       "vlUnity": 1.00
     }, {
+      "_id": "6063d97436e098f7364f45c9",
       "nmSupplie": "Cola",
       "vlUnity": 2.00
     }, {
