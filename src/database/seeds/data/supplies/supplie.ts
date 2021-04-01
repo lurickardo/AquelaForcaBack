@@ -1,22 +1,24 @@
+import {Types} from 'mongoose';
+
 export = [
     {
-      "_id": "6063d97436e098f7364f45c5",
+      "_id": Types.ObjectId('6063d97436e098f7364f45c5'),
       "nmSupplie": "Mochila",
-      "vlUnity": 70.00
+      "vlUnity": 70.10
     }, {
-      "_id": "6063d97436e098f7364f45c6",
+      "_id": Types.ObjectId('6063d97436e098f7364f45c6'),
       "nmSupplie": "Agenda escolar",
-      "vlUnity": 12.00
+      "vlUnity": 12.10
     }, {
-      "_id": "6063d97436e098f7364f45c7",
+      "_id": Types.ObjectId('6063d97436e098f7364f45c7'),
       "nmSupplie": "Apontador",
       "vlUnity": 1.50
     }, {
-      "_id": "6063d97436e098f7364f45c8",
+      "_id": Types.ObjectId('6063d97436e098f7364f45c8'),
       "nmSupplie": "Borracha",
       "vlUnity": 1.00
     }, {
-      "_id": "6063d97436e098f7364f45c9",
+      "_id": Types.ObjectId('6063d97436e098f7364f45c9'),
       "nmSupplie": "Cola",
       "vlUnity": 2.00
     }, {
