@@ -6,12 +6,12 @@ const api = 'https://servicodados.ibge.gov.br/api/v1'
 export default class LocalityController {
 
     async listAllStates(request: Request, response: Response) {
-        const result = await axios.get(`${api}/localidades/estados`)
+        const result = await axios.get(`${api}/localidades/estados?orderBy=nome`)
         return response.status(200).json(result.data)
     }
 
     async listAllCitiesByState(request: Request, response: Response) {
-        const result = await axios.get(`${api}/localidades/estados/${request.params.sgState}/distritos`)
+        const result = await axios.get(`${api}/localidades/estados/${request.params.idState}/distritos?orderBy=nome`)
         return response.status(200).send(result.data)
     }
 }

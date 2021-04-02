@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
-const Student = new mongoose.Schema({
+const Student = new Schema({
     responsible: [{ type: ObjectId, ref: "responsible" }],
     grade: [{ type: ObjectId, ref: "grade" }],
     school: [{ type: ObjectId, ref: "school" }],

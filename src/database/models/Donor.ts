@@ -1,9 +1,6 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
 
 const Donor = new mongoose.Schema({
-    supplieStudent: [{ type: ObjectId, ref: "supplieStudent" }],
     nmSurname: {
         type: String,
         require: true,

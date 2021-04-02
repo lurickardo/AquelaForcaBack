@@ -6,8 +6,8 @@ const School = new mongoose.Schema({
         require: true,
         unique: true,
     },
-    sgState: {
-        type: String,
+    idState: {
+        type: Number,
         require: true,
     },
     idCity: {
