@@ -21,10 +21,13 @@ export default class StudentController {
         })
     }
 
-    async listStudentsBySchool(request: Request, response: Response) {
-        const school = request.params.school as string;
+    async listStudentsBySchoolAndGrade(request: Request, response: Response) {
+        const data = request.params; 
 
-        await Student.find().where({ school }).then((data: any) => {
+        const school = data.school as string;
+        const grade = data.grade as string;
+
+        await Student.find().where({ school, grade }).then((data: any) => {
             return response.status(200).json(data)
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })

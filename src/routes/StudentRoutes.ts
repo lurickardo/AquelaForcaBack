@@ -5,7 +5,7 @@ const studentRoutes = Router();
 const studentController = new StudentController();
 
 studentRoutes.get('/student/responsible/:responsible', studentController.listStudentsByResponsible)
-studentRoutes.get('/student/school/:school', studentController.listStudentsBySchool)
+studentRoutes.get('/student/schoolGrade/:school/:grade', studentController.listStudentsBySchoolAndGrade)
 studentRoutes.post('/student/register', studentController.store)
 studentRoutes.put('/student/edit/:responsible', studentController.update)
 studentRoutes.delete('/student/exclude/:_id', studentController.delete)
