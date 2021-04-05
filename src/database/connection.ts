@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 class Connection {
     public mongodbConnection() {
-        return mongoose.connect('mongodb://localhost:27017/db_hackaton_fcamara', {
+        return mongoose.connect('mongodb://localhost:27017/db_aquela_forca', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,

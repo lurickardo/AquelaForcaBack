@@ -3,7 +3,7 @@ import path from "path";
 
 async function seed() {
   const config = {
-    database: 'mongodb://127.0.0.1:27017/db_hackaton_fcamara'
+    database: 'mongodb://127.0.0.1:27017/db_aquela_forca'
   };
   
   const seeder = new Seeder(config);
