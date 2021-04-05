@@ -27,7 +27,7 @@ export default class StudentController {
         const school = data.school as string;
         const grade = data.grade as string;
 
-        await Student.find().where({ school, grade }).then((data: any) => {
+        await Student.find().where({ school, grade }).populate('school').then((data: any) => {
             return response.status(200).json(data)
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })
@@ -37,8 +37,8 @@ export default class StudentController {
     async store(request: Request, response: Response) {
         const students = request.body as Array<IStudent>
 
-        await Student.insertMany(students).then(() => {
-            return response.status(201).json({ message: "Alunos criados com sucesso." })
+        await Student.insertMany(students).then((data: any) => {
+            return response.status(201).json({ message: "Alunos criados com sucesso.", responsible: data[0].responsible})
         }).catch((error: string) => {
             return response.status(500).json({ message: `${error}` })
         })
