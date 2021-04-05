@@ -1,8 +1,8 @@
 {
-  "name": "hackatonFcamaraBack",
+  "name": "aquelaforcaback",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:luiz250800/hackatonFcamaraBack.git",
+  "repository": "git@github.com:luiz250800/AquelaForcaBack.git",
   "author": "Luiz Ricardo Soares dos Santos <luizr726@gmail.com>",
   "license": "MIT",
   "scripts": {
