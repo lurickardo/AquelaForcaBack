@@ -26,14 +26,9 @@ export default class DonorController {
             let listValueBillet = [];
             for(let donateSupplie of donateSupplies) {
                 const supplieStudent = await SupplieStudent.find().populate('supplie').where({_id: donateSupplie.supplieStudent[0]})
-                
-                const qtSupplie = supplieStudent[0].qtSupplie - donateSupplie.qtDonate;
-                if(qtSupplie > 0){
-                    await SupplieStudent.updateOne({_id: supplieStudent[0]._id}, {$set: {qtSupplie: supplieStudent[0].qtSupplie - donateSupplie.qtDonate}})
-                }
-                
                 listValueBillet.push(donateSupplie.qtDonate * supplieStudent[0].supplie[0].vlUnity)
             }
+            
             const totalValueBullet = listValueBillet.reduce((oldValue, newValue) => oldValue + newValue).toFixed(2)
             return response.status(201).send({donor, totalValueBullet})
         } catch (error) {

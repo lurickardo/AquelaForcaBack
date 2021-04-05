@@ -36,6 +36,7 @@ export default class SupplieStudentController {
             updateOne: {
                 filter: { _id: supplieStudent._id },
                 update: supplieStudent,
+                upsert: true
             }
         }))
 

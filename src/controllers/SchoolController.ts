@@ -16,7 +16,7 @@ export default class SchoolController {
     }
 
     async store(request: Request, response: Response) {
-        const data = request.query;
+        const data = request.body;
 
         const nmSchool = data.nmSchool as string;
         const idState = Number(data.idState) as number;
