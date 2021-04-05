@@ -71,8 +71,9 @@ cd AquelaForcaFront
 # Rode o comando abaixo para instalar as dependências do projeto.
 yarn install
 
-# Rode o comando abaixo para executar o projeto.
+# Rode os comandos abaixo para executar o projeto.
 yarn start
+yarn run seed
 
 ```
 
