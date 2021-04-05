@@ -76,7 +76,12 @@ yarn start
 yarn run seed
 
 ```
+### - Collections
+```bash
 
+# Importe o arquivo AquelaForcaCollections na raiz do projeto em sua plataforma de desenvolvimento de API favorita
+
+```
 
 # Participantes:
 
