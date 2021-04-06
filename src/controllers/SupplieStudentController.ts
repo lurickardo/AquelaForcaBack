@@ -1,8 +1,10 @@
 import { Request, Response } from 'express';
+import { mongo } from 'mongoose';
+import mongodb from 'mongodb';
 import SupplieStudent from '../database/models/SupplieStudent';
 
 interface ISupplieStudent {
-    _id?: string;
+    _id?: string | mongodb.ObjectId;
     supplie: string;
     student: string;
     qtSupplie: number;
@@ -32,13 +34,18 @@ export default class SupplieStudentController {
     async update(request: Request, response: Response) {
         const supplieStudents = request.body as Array<ISupplieStudent>;
 
-        const bulkOps = supplieStudents.map((supplieStudent) => ({
-            updateOne: {
-                filter: { _id: supplieStudent._id },
-                update: supplieStudent,
-                upsert: true
+        const bulkOps = supplieStudents.map((supplieStudent) => {
+            if (!supplieStudent._id) {
+                supplieStudent._id = new mongo.ObjectID();
             }
-        }))
+            return {
+                updateOne: {
+                    filter: { _id: supplieStudent._id },
+                    update: supplieStudent,
+                    upsert: true
+                }
+            }
+        })
 
         await SupplieStudent.bulkWrite(bulkOps).then(() => {
             return response.status(200).json({ message: "Materiais do aluno alterados com sucesso." })
