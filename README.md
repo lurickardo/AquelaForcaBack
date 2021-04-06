@@ -66,7 +66,7 @@ git clone https://github.com/luiz250800/AquelaForcaBack.git
 
 # Acesse a pasta que foi copiada para o seu repositório local com o comando cd nome-da-pasta. 
 # Caso tenha dúvida do nome, rode o comando ls para listar todas as pastas.
-cd AquelaForcaFront
+cd AquelaForcaBack
 
 # Rode o comando abaixo para instalar as dependências do projeto.
 yarn install
